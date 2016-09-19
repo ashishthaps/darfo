@@ -1,0 +1,427 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "resourcegroup": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subscriptionId": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "workspace": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "workspaceapiversion": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "[parameters('workspaceapiversion')]",
+            "name": "[parameters('workspace')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "location": "[parameters('location')]",
+            "id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "name": "ceb3f134-2f7a-4314-bf58-a1fe0527c004",
+                    "type": "views",
+                    "location": "[parameters('location')]",
+                    "id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'),'/views/ceb3f134-2f7a-4314-bf58-a1fe0527c004')]",
+                    "dependson": [
+                        "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]"
+                    ],
+                    "properties": {
+                        "Id": "ceb3f134-2f7a-4314-bf58-a1fe0527c004",
+                        "Name": "HDInsight Log Analytics & Monitoring",
+                        "Description": "Gain Hadoop Operational Intelligence in HDinsight",
+                        "Author": "ashishth@microsoft.com",
+                        "Source": "Local",
+                        "Dashboard": [
+                            {
+                                "Id": "InformationBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "Title": "",
+                                        "NewGroup": false,
+                                        "Color": "#00bcf2"
+                                    },
+                                    "Header": {
+                                        "Image": "data:image/png;base64,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",
+                                        "Label": "Log Analytics, Monitoring & Alerting ",
+                                        "Link": {
+                                            "Label": "Learn More about HDInsight",
+                                            "Url": "https://azure.microsoft.com/en-us/services/hdinsight/"
+                                        }
+                                    },
+                                    "List": [
+                                        {
+                                            "Title": "A managed Apache Hadoop, Spark, R, HBase, and Storm cloud service made easy",
+                                            "Content": "HDInsight solution provides Log Analytics, Monitoring and Alerting capabilities for following HDInsight cluster types. \n\nHadoop \n\nHBase \n\nSpark \n\nStorm \n\nR-Server \n\n \n\n\n"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "Id": "LineChartBuilderBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "title": "",
+                                        "newGroup": false,
+                                        "icon": "",
+                                        "useIcon": false
+                                    },
+                                    "Header": {
+                                        "Title": "Process Time ",
+                                        "Subtitle": ""
+                                    },
+                                    "LineChart": {
+                                        "Query": "Type:Perf CounterName=\"% Processor Time\" InstanceName=\"_Total\" Computer='hn*-*' or Computer='zk*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer ",
+                                        "yAxis": {
+                                            "isLogarithmic": false,
+                                            "units": {
+                                                "baseUnitType": "Percentage",
+                                                "baseUnit": "ZeroToOne",
+                                                "displayUnit": "ZeroToOne"
+                                            },
+                                            "customLabel": ""
+                                        }
+                                    },
+                                    "List": {
+                                        "Query": "Type:Perf CounterName=\"% Processor Time\" InstanceName=\"_Total\" Computer='hn*-*' or Computer='zk*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer ",
+                                        "HideGraph": false,
+                                        "enableSparklines": false,
+                                        "operation": "Summary",
+                                        "ColumnsTitle": {
+                                            "Name": "CPU Processor Time",
+                                            "Value": "Value"
+                                        },
+                                        "Color": "#00bcf2",
+                                        "thresholds": {
+                                            "isEnabled": false,
+                                            "values": [
+                                                {
+                                                    "name": "Normal",
+                                                    "threshold": "Default",
+                                                    "color": "#009e49",
+                                                    "isDefault": true
+                                                },
+                                                {
+                                                    "name": "Warning",
+                                                    "threshold": 60,
+                                                    "color": "#fcd116"
+                                                },
+                                                {
+                                                    "name": "Error",
+                                                    "threshold": 90,
+                                                    "color": "#ba141a"
+                                                }
+                                            ]
+                                        },
+                                        "NameDSVSeparator": "",
+                                        "NavigationQuery": "{selected item}"
+                                    }
+                                }
+                            },
+                            {
+                                "Id": "NotableQueriesBuilderBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "title": "Hadoop Log Search",
+                                        "newGroup": false,
+                                        "preselectedFilters": "",
+                                        "renderMode": "grid"
+                                    },
+                                    "queries": [
+                                        {
+                                            "query": "Type=regionserverlogs_CL",
+                                            "displayName": "HBaseRegion Server Logs"
+                                        },
+                                        {
+                                            "query": "Type=zookeeperlogs_CL ",
+                                            "displayName": "HBase Zookeeper  Logs"
+                                        },
+                                        {
+                                            "query": "Type=restserverlog_CL",
+                                            "displayName": "HBase Rest Server Logs"
+                                        },
+                                        {
+                                            "query": "Type=log_yarnresourcemanagerlog_CL",
+                                            "displayName": "Yarn Resource Manager Logs"
+                                        },
+                                        {
+                                            "query": "Type=log_hadoopmapreducejobsummarylog_CL",
+                                            "displayName": "Map-Reduce Job Summery Logs "
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "Id": "LineChartSparklineBuilderBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "title": "",
+                                        "newGroup": false,
+                                        "icon": "",
+                                        "useIcon": false
+                                    },
+                                    "Header": {
+                                        "Title": "HBase Region Count",
+                                        "Subtitle": ""
+                                    },
+                                    "lineChart": {
+                                        "query": "Type= metrics_regionserver_CL | measure avg(regionCount_d) by tagHostname_s ",
+                                        "yAxis": {
+                                            "isLogarithmic": false,
+                                            "units": {
+                                                "baseUnitType": "",
+                                                "baseUnit": "",
+                                                "displayUnit": ""
+                                            },
+                                            "customLabel": ""
+                                        }
+                                    },
+                                    "List": {
+                                        "Query": "Type= metrics_regionserver_CL | measure avg(regionCount_d) by tagHostname_s ",
+                                        "operation": "Last Sample",
+                                        "HideGraph": false,
+                                        "enableSparklines": true,
+                                        "ColumnsTitle": {
+                                            "Name": "Worker Node",
+                                            "Value": "Regions"
+                                        },
+                                        "Color": "#0072c6",
+                                        "thresholds": {
+                                            "isEnabled": false,
+                                            "values": [
+                                                {
+                                                    "name": "Normal",
+                                                    "threshold": "Default",
+                                                    "color": "#009e49",
+                                                    "isDefault": true
+                                                },
+                                                {
+                                                    "name": "Warning",
+                                                    "threshold": 60,
+                                                    "color": "#fcd116"
+                                                },
+                                                {
+                                                    "name": "Error",
+                                                    "threshold": 90,
+                                                    "color": "#ba141a"
+                                                }
+                                            ]
+                                        },
+                                        "NavigationQuery": "{selected item}"
+                                    }
+                                }
+                            },
+                            {
+                                "Id": "LineChartSparklineBuilderBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "title": "",
+                                        "newGroup": false,
+                                        "icon": "",
+                                        "useIcon": false
+                                    },
+                                    "Header": {
+                                        "Title": "HBase Read & Writes",
+                                        "Subtitle": ""
+                                    },
+                                    "lineChart": {
+                                        "query": "Type= metrics_regionserver_CL | measure avg(readRequestCount_d), avg(writeRequestCount_d) by tagHostname_s ",
+                                        "yAxis": {
+                                            "isLogarithmic": false,
+                                            "units": {
+                                                "baseUnitType": "",
+                                                "baseUnit": "",
+                                                "displayUnit": ""
+                                            },
+                                            "customLabel": ""
+                                        }
+                                    },
+                                    "List": {
+                                        "Query": "Type= metrics_regionserver_CL | measure avg(readRequestCount_d), avg(writeRequestCount_d) by tagHostname_s interval 1minute",
+                                        "operation": "Summary",
+                                        "HideGraph": false,
+                                        "enableSparklines": true,
+                                        "ColumnsTitle": {
+                                            "Name": "Node",
+                                            "Value": "Average"
+                                        },
+                                        "Color": "#0072c6",
+                                        "thresholds": {
+                                            "isEnabled": false,
+                                            "values": [
+                                                {
+                                                    "name": "Normal",
+                                                    "threshold": "Default",
+                                                    "color": "#009e49",
+                                                    "isDefault": true
+                                                },
+                                                {
+                                                    "name": "Warning",
+                                                    "threshold": 60,
+                                                    "color": "#fcd116"
+                                                },
+                                                {
+                                                    "name": "Error",
+                                                    "threshold": 90,
+                                                    "color": "#ba141a"
+                                                }
+                                            ]
+                                        },
+                                        "NavigationQuery": "{selected item}"
+                                    }
+                                }
+                            },
+                            {
+                                "Id": "LineChartSparklineBuilderBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "title": "",
+                                        "newGroup": false,
+                                        "icon": "",
+                                        "useIcon": false
+                                    },
+                                    "Header": {
+                                        "Title": "HBase hLog file count",
+                                        "Subtitle": ""
+                                    },
+                                    "lineChart": {
+                                        "query": "Type= metrics_regionserver_CL | measure avg(hlogFileCount_d) by tagHostname_s ",
+                                        "yAxis": {
+                                            "isLogarithmic": false,
+                                            "units": {
+                                                "baseUnitType": "",
+                                                "baseUnit": "",
+                                                "displayUnit": ""
+                                            },
+                                            "customLabel": ""
+                                        }
+                                    },
+                                    "List": {
+                                        "Query": "Type= metrics_regionserver_CL | measure avg(hlogFileCount_d) by tagHostname_s ",
+                                        "operation": "Summary",
+                                        "HideGraph": false,
+                                        "enableSparklines": true,
+                                        "ColumnsTitle": {
+                                            "Name": "Type",
+                                            "Value": "Count"
+                                        },
+                                        "Color": "#0072c6",
+                                        "thresholds": {
+                                            "isEnabled": false,
+                                            "values": [
+                                                {
+                                                    "name": "Normal",
+                                                    "threshold": "Default",
+                                                    "color": "#009e49",
+                                                    "isDefault": true
+                                                },
+                                                {
+                                                    "name": "Warning",
+                                                    "threshold": 60,
+                                                    "color": "#fcd116"
+                                                },
+                                                {
+                                                    "name": "Error",
+                                                    "threshold": 90,
+                                                    "color": "#ba141a"
+                                                }
+                                            ]
+                                        },
+                                        "NavigationQuery": "{selected item}"
+                                    }
+                                }
+                            },
+                            {
+                                "Id": "NotableQueriesBuilderBlade",
+                                "Type": "Blade",
+                                "Version": 0,
+                                "Configuration": {
+                                    "General": {
+                                        "title": "Popular HBase charts",
+                                        "newGroup": false,
+                                        "preselectedFilters": "Type, Computer",
+                                        "renderMode": "grid"
+                                    },
+                                    "queries": [
+                                        {
+                                            "query": "Type=  metrics_regionserveros_CL | measure avg(OpenFileDescriptorCount_d), avg(MaxFileDescriptorCount_d) by ObjectName_s interval 1minute",
+                                            "displayName": "Open Files vs Total Open Files"
+                                        },
+                                        {
+                                            "query": "Type=  metrics_regionserveros_CL | measure avg(TotalPhysicalMemorySize_d), avg(FreePhysicalMemorySize_d) by ObjectName_s interval 1minute",
+                                            "displayName": "Free vs Total Memory"
+                                        },
+                                        {
+                                            "query": " Type=  metrics_regionserver_CL  | measure avg(CommittedVirtualMemorySize_d) by ObjectName_s interval 1minute",
+                                            "displayName": "Committed Virtual Memory Size"
+                                        },
+                                        {
+                                            "query": " Type=metrics_regionserveros_CL  | measure avg(SystemLoadAverage_d) by ObjectName_s interval 1minute",
+                                            "displayName": "Average Load"
+                                        },
+                                        {
+                                            "query": "Type=metrics_regionserveros_CL | measure avg(SystemCpuLoad_d) by ObjectName_s interval 1minute",
+                                            "displayName": "CPU Load"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "OverviewTile": {
+                            "Id": "LineChartBuilderTile",
+                            "Type": "OverviewTile",
+                            "Version": 0,
+                            "Configuration": {
+                                "LineChart": {
+                                    "Query": "Type:Perf CounterName=\"% Processor Time\" InstanceName=\"_Total\" Computer='hn*-*' or Computer='zk*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer ",
+                                    "yAxis": {
+                                        "isLogarithmic": true,
+                                        "units": {
+                                            "baseUnitType": "Percentage",
+                                            "baseUnit": "ZeroToOne",
+                                            "displayUnit": "ZeroToOne"
+                                        },
+                                        "customLabel": ""
+                                    }
+                                },
+                                "Advanced": {
+                                    "DataFlowVerification": {
+                                        "Enabled": true,
+                                        "Query": "Type= metrics_regionserver_CL",
+                                        "Message": "Performing Assessment - ensure that you have run the following [Script Action](https://raw.githubusercontent.com/duoxu/darfo/master/script.sh)"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
